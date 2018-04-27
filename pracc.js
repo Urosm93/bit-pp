@@ -103,57 +103,54 @@ console.log(numberparameter(8));
 
 function separator(str, sep) {
 
-    var newString="";
+    var newString = "";
 
-    for (i = 0; i < str.length; i++) {
+    for (var i = 0; i < str.length; i++) {
         if (str[i] === " ") {
             newString += sep;
-        }else{
-                newString += str[i];     
-           } 
-    
-}
-return newString;
+        } else {
+            newString += str[i];
+        }
+
+    }
+    return newString;
 }
 
 console.log(separator("daliradi", "-"));
 
 //task 10
 
-function createNewString (n, str){
+function createNewString(n, str) {
 
     var newString = "";
 
-    for (i = 0; i <= n; i++){
-            newString += str[i];   
+    for (var i = 0; i <= n; i++) {
+        newString += str[i];
     }
-        newString += "...";
 
-      return newString;
+    return newString + "...";
 }
-console.log(createNewString(5,"tastatura"));
+
+console.log(createNewString(5, "tastatura"));
 
 // task 11
 
 
 function filterNonNumbers(inputArray) {
     var numArray = [];
-    var positionFixer = 0;
-   
+
     for (var i = 0; i < inputArray.length; i++) {
         var element = inputArray[i];
         var number = parseFloat(element);
-       
+
         if (!isNaN(number) && isFinite(number)) {
-            numArray[i - positionFixer] = number;
-        } else {
-            positionFixer++;
-        }
+            numArray[numArray.length] = number;
+        } 
     }
     return numArray;
- }
- 
- var output = filterNonNumbers(["1", "21", undefined, "42", "1e+3", Infinity]);
- console.log(output);
- 
+}
+
+var output = filterNonNumbers(["1", "21", undefined, "42", "1e+3", Infinity]);
+console.log(output);
+
 
