@@ -16,6 +16,7 @@
         }
     }
     function ShoppingBag() {
+
         this.productList = [];
 
         this.addProduct = function (product) {
@@ -31,9 +32,11 @@
             for (var i = 0; i < this.productList.length; i++) {
                 var product = this.productList[i]
                 totalPrice += product.price;
+                var avaragePrice = totalPrice / this.productList.length;
             }
-            return totalPrice / this.productList.length;
+            return parseFloat(avaragePrice.toFixed(3))
         }
+
         this.getMostExpensive = function () {
             var max = this.productList[0].price;
             for (var i = 0; i < this.productList.length; i++) {
@@ -51,18 +54,13 @@
             }
             return sum;
         }
-
-
-
     }
 
     function PaymentCard(balance, status, validation) {
-        this.balance = balance.toFixed(2);
+        this.balance = parseFloat(balance);
         this.validation = new Date(validation);
         this.status = function (){
-                if(this.validation > Date.now()){
-                    return "active";
-                } else return "inactive";
+            return this.expDate.getTime() > Date.now();
         };
     }
 
@@ -77,7 +75,7 @@
     var papaja = new Product("papaja", 234.25, "11/11/2018");
     var dusek = new Product("dusek", 64444.25, "11/11/2018");
 
-    var myStatus = new PaymentCard(550000, "6/6/2019");
+    var myStatus = new PaymentCard(550000, "12/12/2018");
 
     var myShoppingBag = new ShoppingBag();
     myShoppingBag.addProduct(mango);
@@ -91,7 +89,7 @@
 
 
 
-    console.log(myStatus.validation);
+    console.log(myStatus.status);
 
 
 })();
