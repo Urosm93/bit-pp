@@ -5,7 +5,5 @@ var toggle = setInterval(function () {
 }, 1000);
 
 
-function turnOff() {
-    var body = document.querySelector('body');
 
-}
+
