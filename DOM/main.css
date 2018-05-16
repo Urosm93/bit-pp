@@ -1,7 +1,18 @@
-.background {
+/* .background {
     background-color: green;
 }
 
 .active{
     background-color: bisque;
+}
+.allLi{
+    background-color: rgb(29, 29, 165);
+} */
+
+form label input {
+
+}
+
+.newClass {
+    border-color: green;
 }
