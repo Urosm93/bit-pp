@@ -4,20 +4,23 @@
 
     function Genre(name) {
         this.name = name;
-        this.getData = function (name) {
-            var firstLetter = this.name[0].toUpperCase();
-            var lastLetter = this.name[this.name.length - 1].toUpperCase();
-            var acronym = firstLetter + lastLetter;
+        this.getData = function () {
+            const firstLetter = this.name[0].toUpperCase();
+            const lastLetter = this.name[this.name.length - 1].toUpperCase();
+            const acronym = `${firstLetter}${lastLetter}`;
             return acronym;
         }
     }
 
     function Movie(title, genre, length) {
+        // if (genre instanceof Genre) {
+        //     console.log(`genre is not instance of ${Genre}`)
+        // }
         this.title = title;
         this.genre = new Genre(genre);
         this.length = length;
         this.getData = function () {
-            return this.title + ", " + this.length + ", " + this.genre.getData();
+            return `${this.title}: ${this.length}, ${this.genre.getData()}`;
         }
     }
 
@@ -31,14 +34,14 @@
             this.totalNumberOfMovies++;
         }
         this.getData = function () {
-            var str = "";
-            var day = this.date.getDate();
-            var month = this.date.getMonth() + 1;
-            var year = this.date.getFullYear();
-            var date = day + "/" + month + "/" + year;
-            var programLength = 0;
-            for (var i = 0; i < 2; i++) {
-                programLength =programLength + 2;
+            const str = "";
+            const day = this.date.getDate();
+            const month = this.date.getMonth() + 1;
+            const year = this.date.getFullYear();
+            const date = day + "/" + month + "/" + year;
+            const programLength = 0;
+            for (let i = 0; i < 2; i++) {
+                programLength = programLength + 2;
                 return programLength;
             }
             return programLength;
@@ -57,16 +60,16 @@
             this.numOfMoviesInPrograms++;
         }
     }
-    var program = new Program("12/08/2018");
-    var maratonci = new Movie("Maratonci", "Action", 130);
-    var tesnaKoza = new Movie("Tesna Koza", "Comedy", 123);
-    var kustendorf = new Festival("kustendorf");
+    let program = new Program("12/08/2018");
+    const maratonci = new Movie("Maratonci", "Action", 130);
+    const tesnaKoza = new Movie("Tesna Koza", "Comedy", 123);
+    const kustendorf = new Festival("kustendorf");
 
 
     program.addMovie(maratonci);
     program.addMovie(tesnaKoza);
 
-    console.log(program.getData());
+    console.log(tesnaKoza.getData());
 }
 
 
