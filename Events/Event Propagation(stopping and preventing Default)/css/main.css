@@ -1,0 +1,10 @@
+.gallery{
+    margin:0 auto;
+    
+}
+.last {
+    width: 300px;
+}
+.border {
+    border: 1px solid red;
+}
